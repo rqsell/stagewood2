@@ -6,11 +6,11 @@ function users(parent, args, context, info) {
 
 function getUser(parent, args, context, info) {
   const where = args.id;
-  console.log("hamster", context.userId, "???");
+  // console.log("hamster", context.userId, "???");
   let user = context.prisma.user.findUnique({
     where: { id: context.userId },
   });
-  console.log(user, " ?"); //, an);
+  // console.log(user, " ?");
   return user;
 }
 module.exports = {

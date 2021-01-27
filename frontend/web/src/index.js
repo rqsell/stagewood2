@@ -6,7 +6,7 @@ import { setContext } from "@apollo/client/link/context";
 import { BrowserRouter } from "react-router-dom";
 // import * as serviceWorker from "./serviceWorker";
 
-// 1
+//
 import {
   ApolloProvider,
   ApolloClient,
@@ -30,14 +30,13 @@ const authLink = setContext((_, { headers }) => {
     },
   };
 });
-// 3
+//
 const client = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
 //
 
-// 4
 ReactDOM.render(
   <BrowserRouter>
     <ApolloProvider client={client}>

@@ -31,7 +31,6 @@ const LOGIN_MUTATION = gql`
   }
 `;
 const CreateAccount = () => {
-  const history = useHistory();
   const [formStateTwo, setFormStateTwo] = useState({
     login: true,
     email: "",
@@ -45,8 +44,7 @@ const CreateAccount = () => {
     },
     onCompleted: ({ login }) => {
       localStorage.setItem(AUTH_TOKEN, login.token);
-      console.log(login.token);
-      // <LinkList />;
+      // console.log(login.token);
     },
   });
   const [signup] = useMutation(SIGNUP_MUTATION, {
@@ -60,12 +58,11 @@ const CreateAccount = () => {
     onCompleted: ({ signup }) => {
       console.log(AUTH_TOKEN, signup.token);
       localStorage.setItem(AUTH_TOKEN, signup.token);
-      //   history.push("/");
     },
   });
   return (
     <div>
-      {/* <h4 className="mv3">{formState.login ? "Login" : "Sign Up"}</h4> */}
+      <h4 className="mv3">{formState.login ? "Login" : "Sign Up"}</h4>
       <div className="form">
         <div>Name</div>
         {!formStateTwo.login && (

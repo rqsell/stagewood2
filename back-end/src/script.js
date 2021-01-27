@@ -13,9 +13,9 @@ async function main() {
   var corsOptions = {
     origin: [
       "http://localhost:3000",
-      "https://frozen-eyrie-94018.herokuapp.com/",
+      "https://thirsty-hypatia-9f72d1.netlify.app",
     ],
-    credentials: true, // <-- REQUIRED backend setting
+    credentials: true,
   };
   server.use(cors(corsOptions));
   //4

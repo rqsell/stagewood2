@@ -7,7 +7,6 @@ const refreshPage = () => {
 
 const logout = () => {
   window.localStorage.clear();
-  // client.resetStore();
 };
 
 const LinkList = ({ user }) => {
