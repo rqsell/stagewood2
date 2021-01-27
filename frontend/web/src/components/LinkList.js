@@ -3,7 +3,6 @@ import { useQuery, gql, graphql } from "@apollo/client";
 
 const LinkList = ({ user }) => {
   return (
-    window.location.reload(false);
     <div className="formpage">
       <h1>Profile</h1>
       <div className="form">
