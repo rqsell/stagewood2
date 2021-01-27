@@ -1,8 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useQuery, gql, graphql } from "@apollo/client";
-
+import { Switch, Route, BrowserRouter, Link } from "react-router-dom";
 const refreshPage = () => {
   window.location.reload();
+};
+
+const logout = () => {
+  window.localStorage.clear();
+  // client.resetStore();
 };
 
 const LinkList = ({ user }) => {
@@ -19,6 +24,14 @@ const LinkList = ({ user }) => {
         <h3>Name: {user?.name}</h3>
         <h3>Username:{user?.username} </h3>
         <h3>Email: {user?.email} </h3>
+        <Link
+          to="/"
+          onClick={logout}
+          style={{ textDecoration: "none" }}
+          className="logoutbutton"
+        >
+          Logout
+        </Link>
       </div>
     </div>
   );
