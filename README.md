@@ -2,7 +2,7 @@ Start Server
 cd backend/src/index.js
 npm i nodemon
 
-Start client
+Start Client
 cd frontend/web
 npm i
 npm start
