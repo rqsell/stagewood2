@@ -1,0 +1,25 @@
+{
+  "name": "stagewood",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./back-end/src/index.js",
+
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm install ./back-end && node ./back-end/src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rqsell/stagewood.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rqsell/stagewood/issues"
+  },
+  "homepage": "https://github.com/rqsell/stagewood#readme"
+
+
+
+}
