@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useQuery, gql, graphql } from "@apollo/client";
 
+const refreshPage = () => {
+  window.location.reload();
+};
+
 const LinkList = ({ user }) => {
   return (
     <div className="formpage">
+      {refreshPage}
       <h1>Profile</h1>
       <div className="form">
         <img
