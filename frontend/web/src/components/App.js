@@ -3,6 +3,7 @@ import { Switch, Route, BrowserRouter, Link } from "react-router-dom";
 import { useQuery, gql, graphql } from "@apollo/client";
 import Login from "./Login";
 import LinkList from "./LinkList";
+import Items from "./Items";
 
 // passing user fetching query
 const GET_USER = gql`
@@ -62,6 +63,11 @@ function App() {
             exact
             path="/profile"
             render={(props) => <LinkList user={user} {...props} />}
+          />
+          <Route
+            exact
+            path="/items"
+            render={(props) => <Items user={user} {...props} />}
           />
         </Switch>
       </BrowserRouter>

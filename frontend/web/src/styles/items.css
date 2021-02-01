@@ -1,0 +1,24 @@
+*{
+    background-color: white;
+}
+.page{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.itembox{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   margin: 10%;
+}
+.products{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.productimg{
+    height: 20vh;
+    width: auto;
+}
