@@ -66,11 +66,15 @@ function App() {
           </div>
         </nav>
         <header>
-          <button onClick={() => navigateTo(PAGE_CART)}>Cart</button>
+          <div className="buttonbox2">
+            <div onClick={() => navigateTo(PAGE_CART)}>
+              <img className="cart" src="./cart.png" />
+            </div>
 
-          <button onClick={() => navigateTo(PAGE_PRODUCTS)}>
-            View Products
-          </button>
+            <button onClick={() => navigateTo(PAGE_PRODUCTS)}>
+              View Products
+            </button>
+          </div>
         </header>
         {page === PAGE_PRODUCTS && <Items Cart={cart} setCart={setCart} />}
         {page === PAGE_CART && <Cart Cart={cart} setCart={setCart} />}
@@ -82,20 +86,6 @@ function App() {
             exact
             path="/profile"
             render={(props) => <LinkList user={user} {...props} />}
-          />
-          <Route
-            exact
-            path="/items"
-            render={(props) => (
-              <Items user={user} Cart={cart} setCart={setCart} {...props} />
-            )}
-          />
-          <Route
-            exact
-            path="/cart"
-            render={(props) => (
-              <Cart user={user} Cart={cart} setCart={setCart} {...props} />
-            )}
           />
         </Switch>
       </BrowserRouter>

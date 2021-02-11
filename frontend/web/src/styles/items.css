@@ -1,6 +1,10 @@
 *{
     background-color: white;
 }
+.cart{
+    height: 5vh;
+    width: auto;
+}
 .page{
     display: flex;
     flex-direction: column;
@@ -13,6 +17,13 @@
    align-items: center;
    margin: 10%;
 }
+.buttonbox2{
+    background-color: white;
+    width: 15%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
 .products{
     display: flex;
     flex-direction: row;
