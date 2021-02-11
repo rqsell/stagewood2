@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import "../styles/items.css";
-function Items(props) {
-  const [cart, setCart] = useState([]);
+// import Cart from "./Cart";
+function Items({ Cart, setCart }) {
+  // const [cart, setCart] = useState([]);
   const [products] = useState([
     {
       name: 'Air Jordan 1 Mid "Chicago 2020"',
@@ -31,19 +32,13 @@ function Items(props) {
 
   const addtocart = (product) => {
     console.log("hello");
-    setCart([...cart, product]);
+    setCart([...Cart, product]);
   };
 
   return (
     <div className="page">
       <h1>Products</h1>
-      <button
-        onClick={(e) => {
-          console.log(cart);
-        }}
-      >
-        Show Cart
-      </button>
+      <button>Show Cart ({Cart.length})</button>
       <div className="products">
         {products.map((product, idx) => (
           <div className="itembox" key={idx}>
@@ -58,6 +53,7 @@ function Items(props) {
               >
                 Add to Cart
               </button>
+              {/* <Cart {...props} cart={cart} />; */}
             </div>
           </div>
         ))}

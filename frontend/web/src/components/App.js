@@ -4,6 +4,8 @@ import { useQuery, gql, graphql } from "@apollo/client";
 import Login from "./Login";
 import LinkList from "./LinkList";
 import Items from "./Items";
+import Cart from "./Cart";
+import "../styles/items.css";
 
 // passing user fetching query
 const GET_USER = gql`
@@ -17,13 +19,21 @@ const GET_USER = gql`
     }
   }
 `;
+const PAGE_PRODUCTS = "products";
+const PAGE_CART = "cart";
 
 function App() {
   // state for hamburger menu
   const [open, setOpen] = useState(false);
+  const [cart, setCart] = useState([]);
+  const [page, setPage] = useState(PAGE_PRODUCTS);
+
   // fetching user
   let user = useQuery(GET_USER).data?.getUser;
   console.log(user);
+  const navigateTo = (nextPage) => {
+    setPage(nextPage);
+  };
 
   return (
     <div>
@@ -55,9 +65,18 @@ function App() {
             </ul>
           </div>
         </nav>
+        <header>
+          <button onClick={() => navigateTo(PAGE_CART)}>Cart</button>
 
+          <button onClick={() => navigateTo(PAGE_PRODUCTS)}>
+            View Products
+          </button>
+        </header>
+        {page === PAGE_PRODUCTS && <Items Cart={cart} setCart={setCart} />}
+        {page === PAGE_CART && <Cart Cart={cart} setCart={setCart} />}
         <Switch>
-          <Route exact path="/" render={(props) => <Login {...props} />} />
+          {/* <Route exact path="/" render={(props) => <App {...props} />} /> */}
+          <Route exact path="/login" render={(props) => <Login {...props} />} />
           {/* passing the set user */}
           <Route
             exact
@@ -67,7 +86,16 @@ function App() {
           <Route
             exact
             path="/items"
-            render={(props) => <Items user={user} {...props} />}
+            render={(props) => (
+              <Items user={user} Cart={cart} setCart={setCart} {...props} />
+            )}
+          />
+          <Route
+            exact
+            path="/cart"
+            render={(props) => (
+              <Cart user={user} Cart={cart} setCart={setCart} {...props} />
+            )}
           />
         </Switch>
       </BrowserRouter>
