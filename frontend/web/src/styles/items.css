@@ -17,6 +17,7 @@
    align-items: center;
    margin: 10%;
 }
+
 .buttonbox2{
     background-color: white;
     width: 15%;
@@ -30,6 +31,7 @@
     flex-wrap: wrap;
 }
 .productimg{
-    height: 20vh;
+    height: 40vh;
     width: auto;
+    margin-bottom: 5%;
 }

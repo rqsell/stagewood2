@@ -22,6 +22,16 @@ const GET_USER = gql`
 const PAGE_PRODUCTS = "products";
 const PAGE_CART = "cart";
 
+const fetch = require("node-fetch");
+// "https://trefle.io/api/v1/plants?token=XpgmAh9e49lJGpwiyJ9-vtxcGJbx7IrSACqWOa-2-XU&filter[common_name]=beach%20strawberry"
+(async () => {
+  const response = await fetch(
+    "https://trefle.io/api/v1/plants?token=XpgmAh9e49lJGpwiyJ9-vtxcGJbx7IrSACqWOa-2-XU&filter[common_name]=gumbo%20limbo"
+  );
+  const json = await response.json();
+  console.log(json);
+})();
+
 function App() {
   // state for hamburger menu
   const [open, setOpen] = useState(false);
