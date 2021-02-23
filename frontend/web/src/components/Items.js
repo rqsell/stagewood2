@@ -1,31 +1,20 @@
+import { PossibleFragmentSpreadsRule } from "graphql";
 import React, { useState } from "react";
 import "../styles/items.css";
 // import Cart from "./Cart";
 function Items({ Cart, setCart }) {
   // const [cart, setCart] = useState([]);
   const [plant, setPlant] = useState();
-  const [toggle, setToggle] = useState(!true);
+  const [toggle, setToggle] = useState(false);
   const getPlant = async (product) => {
     const response = await fetch(
       `https://trefle.io/api/v1/plants?token=XpgmAh9e49lJGpwiyJ9-vtxcGJbx7IrSACqWOa-2-XU&filter[common_name]=${product.api}`
     );
     const json = await response.json();
 
-    setPlant(json.data);
-    console.log(plant);
-    // console.log(plant.common_name);
+    setPlant(json?.data[0]);
   };
 
-  // const getPlant = async () => {
-  //   // console.log(product);
-  //   const response = await fetch(
-  //     "https://trefle.io/api/v1/plants?token=XpgmAh9e49lJGpwiyJ9-vtxcGJbx7IrSACqWOa-2-XU&filter[common_name]=gumbo%20limbo"
-  //   );
-  //   const json = await response.json();
-  //   console.log(json);
-  //   setPlant(json);
-  //   console.log("cat", plant);
-  // };
   const [products] = useState([
     {
       name: "Gumbo Limbo",
@@ -77,11 +66,24 @@ function Items({ Cart, setCart }) {
               <button
                 onClick={(e) => {
                   getPlant(product);
+                  setToggle(!toggle);
+                  console.log(toggle);
                 }}
               >
                 More Info
               </button>
-              {/* <Cart {...props} cart={cart} />; */}
+              {!toggle ? (
+                <p>
+                  The {plant?.common_name} has the scientific name of{" "}
+                  {plant?.scientific_name} and the family of {plant?.family}.
+                </p>
+              ) : null}
+              {!toggle && plant?.synonyms.length > 3 ? (
+                <span>
+                  Common synonyms of this plant are {plant?.synonyms[0]},{" "}
+                  {plant?.synonyms[1]},and {plant?.synonyms[2]}.
+                </span>
+              ) : null}
             </div>
           </div>
         ))}

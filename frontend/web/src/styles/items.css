@@ -35,3 +35,6 @@
     width: auto;
     margin-bottom: 5%;
 }
+.clickedinfo{
+    display: hidden;
+}
