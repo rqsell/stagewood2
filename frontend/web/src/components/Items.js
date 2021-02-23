@@ -75,12 +75,13 @@ function Items({ Cart, setCart }) {
               {!toggle ? (
                 <p>
                   The {plant?.common_name} has the scientific name of{" "}
-                  {plant?.scientific_name} and the family of {plant?.family}.
+                  {plant?.scientific_name} and comes from the family of{" "}
+                  {plant?.family}.
                 </p>
               ) : null}
               {!toggle && plant?.synonyms.length > 3 ? (
                 <span>
-                  Common synonyms of this plant are {plant?.synonyms[0]},{" "}
+                  Common synonyms of this plant are {plant?.synonyms[0]},
                   {plant?.synonyms[1]},and {plant?.synonyms[2]}.
                 </span>
               ) : null}

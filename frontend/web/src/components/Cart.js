@@ -4,7 +4,7 @@ function Cart({ Cart }) {
   console.log(Cart);
   return (
     <div>
-      <h1>Cart!</h1>
+      <h1>Your Garden</h1>
       {Cart?.map((product, idx) => (
         <div className="itembox" key={idx}>
           <h3>{product.name}</h3>

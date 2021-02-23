@@ -78,12 +78,12 @@ function App() {
         <header>
           <div className="buttonbox2">
             <div onClick={() => navigateTo(PAGE_CART)}>
-              <img className="cart" src="./cart.png" />
+              <img className="cart" src="./wheelbarrow.png" />
             </div>
 
-            <button onClick={() => navigateTo(PAGE_PRODUCTS)}>
-              View Products
-            </button>
+            <div onClick={() => navigateTo(PAGE_PRODUCTS)}>
+              <img className="cart" src="./plant.png" />
+            </div>
           </div>
         </header>
         {page === PAGE_PRODUCTS && <Items Cart={cart} setCart={setCart} />}
