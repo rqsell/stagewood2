@@ -97,6 +97,11 @@ function App() {
             path="/profile"
             render={(props) => <LinkList user={user} {...props} />}
           />
+          <Route
+            exact
+            path="/cart"
+            render={(props) => <Cart user={user} {...props} />}
+          />
         </Switch>
       </BrowserRouter>
     </div>

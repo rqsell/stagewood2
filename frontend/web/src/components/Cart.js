@@ -1,11 +1,12 @@
+import { useReactiveVar } from "@apollo/client";
 import React from "react";
 
-function Cart({ Cart }) {
+function Cart(props) {
   console.log(Cart);
   return (
     <div>
-      <h1>Your Garden</h1>
-      {Cart?.map((product, idx) => (
+      {/* <h1>{props?.user.name} Garden</h1> */}
+      {props.Cart?.map((product, idx) => (
         <div className="itembox" key={idx}>
           <h3>{product.name}</h3>
           <h4>{product.cost}</h4>
