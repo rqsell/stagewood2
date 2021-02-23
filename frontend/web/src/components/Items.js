@@ -4,36 +4,53 @@ import "../styles/items.css";
 function Items({ Cart, setCart }) {
   // const [cart, setCart] = useState([]);
   const [plant, setPlant] = useState();
+  const [toggle, setToggle] = useState(!true);
+  const getPlant = async (product) => {
+    const response = await fetch(
+      `https://trefle.io/api/v1/plants?token=XpgmAh9e49lJGpwiyJ9-vtxcGJbx7IrSACqWOa-2-XU&filter[common_name]=${product.api}`
+    );
+    const json = await response.json();
+
+    setPlant(json.data);
+    console.log(plant);
+    // console.log(plant.common_name);
+  };
+
+  // const getPlant = async () => {
+  //   // console.log(product);
+  //   const response = await fetch(
+  //     "https://trefle.io/api/v1/plants?token=XpgmAh9e49lJGpwiyJ9-vtxcGJbx7IrSACqWOa-2-XU&filter[common_name]=gumbo%20limbo"
+  //   );
+  //   const json = await response.json();
+  //   console.log(json);
+  //   setPlant(json);
+  //   console.log("cat", plant);
+  // };
   const [products] = useState([
     {
       name: "Gumbo Limbo",
       img: "https://miro.medium.com/max/1122/1*vF7AV4K2EeneOiUCmXtqlg.jpeg",
-      api: "gumbo20%limbo",
+      api: "gumbo%20limbo",
     },
     {
-      name: "Beautyberry",
+      name: "Firebush",
       img:
-        "https://gardeningsolutions.ifas.ufl.edu/images/plants/shrubs/beautyberry.jpg",
+        "https://gardeningsolutions.ifas.ufl.edu/images/plants/flowers/firebush_butterfly.jpg",
+      api: "firebush",
     },
     {
       name: "Seagrape",
       img:
         "https://gardeningsolutions.ifas.ufl.edu/images/plants/trees/seagrape_beach.jpg",
+      api: "seagrape",
     },
     {
-      name: "Prickly Pear",
+      name: "Eastern Redbud",
       img:
-        "https://cdn-a.william-reed.com/var/wrbm_gb_food_pharma/storage/images/publications/food-beverage-nutrition/nutraingredients-usa.com/news/manufacturers/product-based-on-prickly-pear-extract-takes-aim-at-jet-lag/10460217-1-eng-GB/Product-based-on-prickly-pear-extract-takes-aim-at-jet-lag_wrbm_large.jpg",
+        "https://gardeningsolutions.ifas.ufl.edu/images/plants/trees/redbud_flowers.jpg",
+      api: "eastern%20redbud",
     },
   ]);
-  const getPlant = async () => {
-    const response = await fetch(
-      "https://trefle.io/api/v1/plants?token=XpgmAh9e49lJGpwiyJ9-vtxcGJbx7IrSACqWOa-2-XU&filter[common_name]={product.api}"
-    );
-    const json = await response.json();
-    setPlant(json);
-    console.log(plant);
-  };
 
   const addtocart = (product) => {
     console.log("hello");
@@ -62,7 +79,6 @@ function Items({ Cart, setCart }) {
                   getPlant(product);
                 }}
               >
-                {" "}
                 More Info
               </button>
               {/* <Cart {...props} cart={cart} />; */}
